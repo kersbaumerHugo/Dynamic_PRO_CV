@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugo Kersbaumer Knupp - Python Engineer</title>
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --primary-light: #34d399;
+            --secondary: #14532d;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-light: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent: #22d3ee;
+        }
+      * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+      body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding: 20px;
+        }
+      .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+      /* Header com foto */
+        .header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--bg-card) 100%);
+            border-radius: 16px;
+            padding: 50px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+      .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+      .header-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+      .photo-container {
+            flex-shrink: 0;
+        }
+      .photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+        }
+      .header-info {
+            flex: 1;
+        }
+      .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+      .subtitle {
+            font-size: 1.2em;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+      .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+      .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.95em;
+        }
+      .contact-item a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+      .contact-item a:hover {
+            color: var(--accent);
+        }
+      /* Grid de seções */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+      .section {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+      .section-title {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary);
+        }
+      .section-icon {
+            font-size: 1.2em;
+        }
+      /* Timeline para experiência */
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+            border-left: 2px solid var(--primary);
+        }
+      .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 0 4px var(--bg-card);
+        }
+      .item-header {
+            margin-bottom: 12px;
+        }
+      .item-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--primary-light);
+            margin-bottom: 4px;
+        }
+      .item-company {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+      .item-date {
+            color: var(--text-muted);
+            font-size: 0.9em;
+            margin-top: 4px;
+        }
+      .item-description {
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+      .item-description li {
+            margin-left: 20px;
+            margin-bottom: 8px;
+            position: relative;
+        }
+      .item-description li::marker {
+            color: var(--primary);
+        }
+      /* Skills com ícones */
+        .skills-grid {
+            display: grid;
+            gap: 12px;
+        }
+      .skill-item {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+        }
+      .skill-item:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: var(--primary);
+            transform: translateX(4px);
+        }
+      .skill-icon {
+            font-size: 1.5em;
+            width: 40px;
+            text-align: center;
+        }
+      .skill-info {
+            flex: 1;
+        }
+      .skill-name {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+      .skill-level {
+            font-size: 0.85em;
+            color: var(--text-muted);
+        }
+      /* Certificações */
+        .cert-item {
+            background: rgba(16, 185, 129, 0.05);
+            border-left: 3px solid var(--primary);
+            padding: 12px 16px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+      .cert-item:hover {
+            background: rgba(16, 185, 129, 0.1);
+            transform: translateX(4px);
+        }
+      .cert-name {
+            font-weight: 600;
+            color: var(--primary-light);
+            margin-bottom: 4px;
+        }
+      .cert-related {
+            font-size: 0.85em;
+            color: var(--text-muted);
+        }
+      .cert-tag {
+            display: inline-block;
+            background: rgba(34, 211, 238, 0.2);
+            color: var(--accent);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 6px;
+            margin-top: 4px;
+        }
+      /* Idiomas com barras de progresso */
+        .language-item {
+            margin-bottom: 20px;
+        }
+      .language-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+      .language-name {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+      .language-level {
+            color: var(--text-muted);
+            font-size: 0.9em;
+        }
+      .progress-bar {
+            height: 8px;
+            background: rgba(16, 185, 129, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+      .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+      /* Projetos */
+        .project-card {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: all 0.3s;
+        }
+      .project-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.2);
+            transform: translateY(-2px);
+        }
+      .project-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--primary-light);
+            margin-bottom: 8px;
+        }
+      .project-desc {
+            color: var(--text-muted);
+        }
+      /* Responsive */
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="photo-container">
+                    <!-- Substitua src="sua-foto.jpg" pela URL da sua foto, ou deixe o emoji -->
+                    <div class="photo" id="photo">👨‍💻</div>
+                </div>
+                <div class="header-info">
+                    <h1 id="name"></h1>
+                    <div class="subtitle" id="subtitle"></div>
+                    <div class="contact-grid" id="contacts"></div>
+                </div>
+            </div>
+        </div>
+      <!-- Grid Principal -->
+        <div class="main-grid">
+            <!-- Coluna Esquerda -->
+            <div>
+                <!-- Sobre -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">📋</span>
+                        Sobre
+                    </h2>
+                    <p id="about" style="color: var(--text-muted); line-height: 1.8;"></p>
+                </div>
+              <!-- Experiência -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">💼</span>
+                        Experiência Profissional
+                    </h2>
+                    <div id="experience"></div>
+                </div>
+              <!-- Projetos -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">🚀</span>
+                        Projetos Destacados
+                    </h2>
+                    <div id="projects"></div>
+                </div>
+            </div>
+          <!-- Coluna Direita -->
+            <div>
+                <!-- Skills -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">⚡</span>
+                        Habilidades
+                    </h2>
+                    <div id="skills" class="skills-grid"></div>
+                </div>
+              <!-- Certificações -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">🎓</span>
+                        Certificações
+                    </h2>
+                    <div id="certifications"></div>
+                </div>
+              <!-- Idiomas -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">🌍</span>
+                        Idiomas
+                    </h2>
+                    <div id="languages"></div>
+                </div>
+              <!-- Formação -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">🎯</span>
+                        Formação
+                    </h2>
+                    <div id="education"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <script>
+        const curriculo = {
+            nome: "Hugo Kersbaumer Knupp",
+            titulo: "Python Engineer | Backend | Data Engineering | ML Systems",
+            foto: "👨‍💻", // Substitua por URL da foto: "sua-foto.jpg"
+            contato: {
+                email: "hugo.kersbaumer@gmail.com",
+                telefone: "(22) 99236-9236",
+                linkedin: "linkedin.com/in/hugo-kersbaumer",
+                github: "github.com/kersbaumerHugo",
+                localizacao: "Macaé - RJ"
+            },
+            sobre: "Engenheiro e desenvolvedor especializado em Python, automação e sistemas orientados a dados. Transformo processos operacionais complexos em sistemas automatizados eficientes, combinando engenharia, programação e análise de dados para gerar impacto mensurável. Experiência sólida em backend development, data engineering e machine learning aplicado.",
+            
+            experiencia: [
+                {
+                    cargo: "Engenheiro de Planejamento",
+                    empresa: "Infotec Brasil",
+                    periodo: "Set 2024 - Presente",
+                    descricao: [
+                        "Sistema de automação para análise de timesheets que reduziu em ~95% o tempo de auditoria",
+                        "Desenvolvimento de pipelines de dados para indústria de óleo e gás",
+                        "Colaboração com equipes multidisciplinares em projetos de grande escala"
+                    ]
+                },
+                {
+                    cargo: "Assistente de Projetos",
+                    empresa: "TechnipFMC",
+                    periodo: "Mai 2023 - Set 2024",
+                    descricao: [
+                        "Dashboard de acompanhamento de demandas em Power BI para identificação de gargalos",
+                        "Macro VBA que automatizou criação de ordens de serviço, reduzindo 48% do tempo operacional",
+                        "Painel automático substituindo processo manual físico (redução de 100% do tempo)"
+                    ]
+                },
+                {
+                    cargo: "Estagiário de Engenharia",
+                    empresa: "TechnipFMC",
+                    periodo: "Mai 2021 - Mai 2023",
+                    descricao: [
+                        "Integração de sistemas SAP, SharePoint e Azure DevOps via Python",
+                        "Macro que reduziu 62% do tempo de documentação de reparo e pintura",
+                        "Melhorias sistêmicas em processos de documentação técnica"
+                    ]
+                }
+            ],
+          habilidades: [
+                { nome: "Python", nivel: "Avançado", icone: "🐍", relacionado: ["ETL", "ML", "Backend"] },
+                { nome: "SQL & NoSQL", nivel: "Intermediário", icone: "💾", relacionado: ["PostgreSQL", "Redis"] },
+                { nome: "Pandas & NumPy", nivel: "Intermediário", icone: "🐼", relacionado: ["Data Analysis"] },
+                { nome: "Scikit-Learn", nivel: "Intermediário", icone: "🤖", relacionado: ["ML Models"] },
+                { nome: "Power BI", nivel: "Avançado", icone: "📊", relacionado: ["Dashboards"] },
+                { nome: "Git & GitHub", nivel: "Avançado", icone: "🔀", relacionado: ["CI/CD"] },
+                { nome: "Excel & VBA", nivel: "Avançado", icone: "📈", relacionado: ["Automação"] },
+                { nome: "AWS", nivel: "Básico", icone: "☁️", relacionado: ["Cloud"] }
+            ],
+          certificacoes: [
+                {
+                    nome: "Python para Análise de Dados e ML",
+                    relacionado: ["Python", "Pandas", "Scikit-Learn"]
+                },
+                {
+                    nome: "Versionamento com Git e GitHub",
+                    relacionado: ["Git", "CI/CD"]
+                },
+                {
+                    nome: "Bancos de Dados Relacionais (SQL)",
+                    relacionado: ["SQL", "PostgreSQL"]
+                },
+                {
+                    nome: "Bancos de Dados NoSQL",
+                    relacionado: ["NoSQL", "Redis"]
+                },
+                {
+                    nome: "Fundamentos de ETL com Python",
+                    relacionado: ["ETL", "Luigi", "Python"]
+                }
+            ],
+          idiomas: [
+                { nome: "Português", nivel: "Nativo", progresso: 100 },
+                { nome: "Inglês", nivel: "Fluente", progresso: 95 },
+                { nome: "Espanhol", nivel: "Básico", progresso: 40 }
+            ],
+          formacao: [
+                {
+                    curso: "Pós-graduação em Engenharia da Computação",
+                    instituicao: "UNINTER",
+                    periodo: "2025"
+                },
+                {
+                    curso: "Bacharelado em Engenharia Mecânica",
+                    instituicao: "UFRJ",
+                    periodo: "2018 - 2023"
+                },
+                {
+                    curso: "Técnico em Eletromecânica",
+                    instituicao: "IFF",
+                    periodo: "2014 - 2018"
+                }
+            ],
+          projetos: [
+                {
+                    nome: "Sistema de Automação de Timesheets",
+                    descricao: "Pipeline automatizado para análise e auditoria de registros de horas, reduzindo 95% do tempo operacional. Implementado com Python + Pandas."
+                },
+                {
+                    nome: "Aplicação Financeira Full Stack",
+                    descricao: "Sistema completo desenvolvido em Python para controle e análise de gastos pessoais, incluindo backend, interface e testes automatizados."
+                },
+                {
+                    nome: "TCC: Previsão de Geração Solar com ML",
+                    descricao: "Modelos de machine learning (árvores de decisão e florestas aleatórias) para previsão de geração fotovoltaica usando dados climáticos brasileiros."
+                }
+            ]
+        };
+      // ===== RENDERIZAÇÃO =====
+        document.getElementById('name').textContent = curriculo.nome;
+        document.getElementById('subtitle').textContent = curriculo.titulo;
+        document.getElementById('about').textContent = curriculo.sobre;
+      // Foto (se for URL, descomente a linha abaixo)
+        const photoEl = document.getElementById('photo');
+        if (curriculo.foto.includes('.')) {
+            photoEl.innerHTML = `<img src="${curriculo.foto}" alt="${curriculo.nome}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
+        } else {
+            photoEl.textContent = curriculo.foto;
+        }
+      // Contatos
+        const contactsEl = document.getElementById('contacts');
+        contactsEl.innerHTML = `
+            <div class="contact-item">📧 <a href="mailto:${curriculo.contato.email}">${curriculo.contato.email}</a></div>
+            <div class="contact-item">📱 ${curriculo.contato.telefone}</div>
+            <div class="contact-item">💼 <a href="https://${curriculo.contato.linkedin}" target="_blank">LinkedIn</a></div>
+            <div class="contact-item">💻 <a href="https://${curriculo.contato.github}" target="_blank">GitHub</a></div>
+            <div class="contact-item">📍 ${curriculo.contato.localizacao}</div>
+        `;
+      // Experiência
+        const expEl = document.getElementById('experience');
+        curriculo.experiencia.forEach(exp => {
+            expEl.innerHTML += `
+                <div class="timeline-item">
+                    <div class="item-header">
+                        <div class="item-title">${exp.cargo}</div>
+                        <div class="item-company">${exp.empresa}</div>
+                        <div class="item-date">${exp.periodo}</div>
+                    </div>
+                    <ul class="item-description">
+                        ${exp.descricao.map(d => `<li>${d}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        });
+      // Skills
+        const skillsEl = document.getElementById('skills');
+        curriculo.habilidades.forEach(skill => {
+            skillsEl.innerHTML += `
+                <div class="skill-item">
+                    <div class="skill-icon">${skill.icone}</div>
+                    <div class="skill-info">
+                        <div class="skill-name">${skill.nome}</div>
+                        <div class="skill-level">${skill.nivel}</div>
+                    </div>
+                </div>
+            `;
+        });
+      // Certificações
+        const certsEl = document.getElementById('certifications');
+        curriculo.certificacoes.forEach(cert => {
+            certsEl.innerHTML += `
+                <div class="cert-item">
+                    <div class="cert-name">${cert.nome}</div>
+                    <div class="cert-related">
+                        ${cert.relacionado.map(tag => `<span class="cert-tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+        });
+      // Idiomas
+        const langsEl = document.getElementById('languages');
+        curriculo.idiomas.forEach(lang => {
+            langsEl.innerHTML += `
+                <div class="language-item">
+                    <div class="language-header">
+                        <span class="language-name">${lang.nome}</span>
+                        <span class="language-level">${lang.nivel}</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${lang.progresso}%"></div>
+                    </div>
+                </div>
+            `;
+        });
+      // Formação
+        const eduEl = document.getElementById('education');
+        curriculo.formacao.forEach(edu => {
+            eduEl.innerHTML += `
+                <div class="timeline-item">
+                    <div class="item-title" style="font-size:1em;">${edu.curso}</div>
+                    <div class="item-company" style="font-size:0.9em;">${edu.instituicao}</div>
+                    <div class="item-date">${edu.periodo}</div>
+                </div>
+            `;
+        });
+      // Projetos
+        const projEl = document.getElementById('projects');
+        curriculo.projetos.forEach(proj => {
+            projEl.innerHTML += `
+                <div class="project-card">
+                    <div class="project-title">${proj.nome}</div>
+                    <div class="project-desc">${proj.descricao}</div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
