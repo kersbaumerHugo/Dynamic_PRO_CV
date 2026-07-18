@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "validate": "node scripts/validate.js",
+    "htmlvalidate": "node scripts/validate-html.js",
     "dev": "sirv dist --no-clear --single --port 8080",
     "build": "node scripts/build.js",
     "pdf": "node scripts/generate-pdfs.js",
