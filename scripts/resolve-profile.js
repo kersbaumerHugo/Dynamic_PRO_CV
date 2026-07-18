@@ -21,42 +21,35 @@ function loadAll(dir) {
   return items;
 }
 
-function main() {
+function resolveProfile(profileId, locale) {
   const root = path.resolve(__dirname, '..');
   const profilesDir = path.join(root, 'profiles');
   const dataDir = path.join(root, 'data');
   const dist = path.join(root, 'dist', 'viewmodels');
   if (!fs.existsSync(dist)) fs.mkdirSync(dist, { recursive: true });
 
-  const argv = require('minimist')(process.argv.slice(2));
-  const slug = argv.profile || argv.p || 'devops';
-  const locale = argv.locale || argv.l || 'en';
-
   const profiles = [];
   for (const f of fs.readdirSync(profilesDir).filter(x => x.endsWith('.json'))) profiles.push(loadJson(path.join(profilesDir, f)));
-  const profile = profiles.find(p => p.slug === slug || p.id === slug);
+  const profile = profiles.find(p => p.slug === profileId || p.id === profileId);
   if (!profile) {
-    console.error('Profile not found:', slug);
-    process.exit(2);
+    throw new Error(`Profile not found: ${profileId}`);
   }
 
   const people = loadAll(dataDir);
   const projects = loadAll(path.join(root, 'data'));
   const experiences = loadAll(path.join(root, 'data'));
 
-  // Minimal normalization: select person (only one expected)
   const personFile = path.join(root, 'data', 'person.json');
   const person = fs.existsSync(personFile) ? loadJson(personFile) : {};
 
   const view = {
     profile: { id: profile.id, slug: profile.slug, title: profile.title && profile.title[locale] ? profile.title[locale] : profile.title },
     locale,
-    person: { name: (person.name && person.name[locale]) || person.name || '' , contact: person.contact || {} },
+    person: { name: (person.name && person.name[locale]) || person.name || '', contact: person.contact || {} },
     featuredProjects: [],
     experiences: []
   };
 
-  // featured projects
   if (Array.isArray(profile.featuredProjectIds)) {
     for (const pid of profile.featuredProjectIds.slice(0, profile.maxProjects || 3)) {
       const p = projects[pid];
@@ -64,7 +57,6 @@ function main() {
     }
   }
 
-  // experiences: try to load experience.json if present
   const expFile = path.join(root, 'data', 'experience.json');
   if (fs.existsSync(expFile)) {
     const exps = loadJson(expFile);
@@ -75,9 +67,16 @@ function main() {
     }
   }
 
-  const out = path.join(dist, `${slug}-${locale}.json`);
+  const out = path.join(dist, `${profileId}-${locale}.json`);
   fs.writeFileSync(out, JSON.stringify(view, null, 2), 'utf8');
   console.log('Wrote view-model to', out);
 }
 
-if (require.main === module) main();
+if (require.main === module) {
+  const argv = require('minimist')(process.argv.slice(2));
+  const slug = argv.profile || argv.p || 'devops';
+  const locale = argv.locale || argv.l || 'en';
+  resolveProfile(slug, locale);
+}
+
+module.exports = resolveProfile;

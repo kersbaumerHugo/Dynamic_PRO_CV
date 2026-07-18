@@ -39,11 +39,15 @@ function main() {
   for (const pf of profileFiles) {
     const profile = JSON.parse(fs.readFileSync(path.join(profilesDir, pf), 'utf8'));
     if (!profile.enabled) continue;
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(profile.slug)) {
+      console.warn(`Skipping profile with invalid slug: ${profile.slug}`);
+      continue;
+    }
     for (const locale of locales) {
-      // generate viewmodel
       console.log(`Resolving view-model for ${profile.id} ${locale}`);
       try {
-        execSync(`node scripts/resolve-profile.js --profile ${profile.id} --locale ${locale}`, { stdio: 'inherit' });
+        const resolve = require('./resolve-profile');
+        resolve(profile.id, locale);
       } catch (e) {
         console.error('Failed to resolve view-model for', profile.id, locale, e.message);
         continue;
