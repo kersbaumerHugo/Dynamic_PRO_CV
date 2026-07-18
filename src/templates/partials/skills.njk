@@ -1,0 +1,10 @@
+<h2>Core Skills</h2>
+{% if profile.featuredSkillIds and profile.featuredSkillIds.length %}
+  <ul class="skills-list">
+  {% for sid in profile.featuredSkillIds %}
+    <li>{{ sid }}</li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No skills selected.</p>
+{% endif %}

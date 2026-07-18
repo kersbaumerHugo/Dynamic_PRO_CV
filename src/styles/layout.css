@@ -1,0 +1,7 @@
+.skills-list { list-style: none; padding: 0; display: flex; gap: 8px; flex-wrap: wrap }
+.skills-list li { background: #eef6f6; padding: 4px 8px; border-radius: 4px; font-size: 0.9rem }
+.job { margin-bottom: 12px }
+.job h3 { margin: 0; font-size: 1rem }
+.job .dates { color: var(--color-muted); font-size: 0.85rem }
+.projects-list { list-style: none; padding: 0 }
+.projects-list li { margin-bottom: 8px }

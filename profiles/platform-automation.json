@@ -1,0 +1,11 @@
+{
+  "id": "platform-automation",
+  "enabled": true,
+  "slug": "platform-automation",
+  "title": { "en": "Platform Automation Engineer", "pt-BR": "Engenheiro de Automação de Plataforma" },
+  "summaryId": "summary-platform-main",
+  "featuredSkillIds": [],
+  "featuredProjectIds": [],
+  "includeTraining": true,
+  "maxProjects": 3
+}

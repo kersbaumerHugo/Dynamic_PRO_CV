@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Project",
+  "type": "object",
+  "required": ["id", "title"],
+  "properties": {
+    "id": { "type": "string" },
+    "repositoryUrl": { "type": "string", "format": "uri" },
+    "title": {
+      "type": "object",
+      "properties": { "en": { "type": "string" }, "pt-BR": { "type": "string" } }
+    },
+    "summary": { "type": "object" },
+    "visibility": { "type": "string", "enum": ["public", "private"] }
+  }
+}

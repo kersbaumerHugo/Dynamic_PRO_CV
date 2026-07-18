@@ -1,0 +1,11 @@
+{
+  "id": "person-hugo-kersbaumer",
+  "name": {
+    "en": "Hugo Kersbaumer Knupp",
+    "pt-BR": "Hugo Kersbaumer Knupp"
+  },
+  "contact": {
+    "email": "hugo@example.com",
+    "website": "https://github.com/kersbaumerHugo"
+  }
+}

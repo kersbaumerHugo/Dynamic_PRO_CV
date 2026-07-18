@@ -1,0 +1,26 @@
+{
+  "name": "resume-as-code",
+  "version": "0.1.0",
+  "description": "Resume-as-Code — multilingual ATS-friendly resume generator",
+  "private": true,
+  "scripts": {
+    "validate": "node scripts/validate.js",
+    "dev": "sirv dist --no-clear --single --port 8080",
+    "build": "node scripts/build.js",
+    "pdf": "node scripts/generate-pdfs.js",
+    "test": "vitest",
+    "verify": "npm run validate && npm test && npm run build",
+    "resolve": "node scripts/resolve-profile.js"
+  },
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "nunjucks": "^3.2.4",
+    "sirv-cli": "^2.0.0",
+    "minimist": "^1.2.8"
+  },
+  "devDependencies": {
+    "vitest": "^1.0.0",
+    "playwright": "^1.40.0",
+    "html-validate": "^8.5.0"
+  }
+}

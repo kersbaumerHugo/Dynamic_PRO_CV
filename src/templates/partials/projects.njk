@@ -1,0 +1,13 @@
+<h2>Selected Projects</h2>
+{% if featuredProjects and featuredProjects.length %}
+  <ul class="projects-list">
+  {% for p in featuredProjects %}
+    <li>
+      <strong>{{ p.title }}</strong>
+      <p>{{ p.summary }}</p>
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No projects selected.</p>
+{% endif %}

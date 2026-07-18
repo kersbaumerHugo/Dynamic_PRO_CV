@@ -1,0 +1,11 @@
+{
+  "id": "cloud-automation",
+  "enabled": true,
+  "slug": "cloud-automation",
+  "title": { "en": "Cloud Automation Engineer", "pt-BR": "Engenheiro de Automação em Nuvem" },
+  "summaryId": "summary-cloud-main",
+  "featuredSkillIds": [],
+  "featuredProjectIds": [],
+  "includeTraining": true,
+  "maxProjects": 3
+}

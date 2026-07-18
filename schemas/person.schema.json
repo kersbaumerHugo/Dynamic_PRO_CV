@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/person.schema.json",
+  "title": "Person",
+  "type": "object",
+  "required": ["id", "name", "contact"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": {
+      "type": "object",
+      "properties": {
+        "en": { "type": "string" },
+        "pt-BR": { "type": "string" }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "website": { "type": "string", "format": "uri" }
+      },
+      "required": ["email"]
+    }
+  }
+}

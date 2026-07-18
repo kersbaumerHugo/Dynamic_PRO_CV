@@ -1,0 +1,8 @@
+:root {
+  --color-background: #f7f9fc;
+  --color-surface: #ffffff;
+  --color-text: #172033;
+  --color-muted: #536172;
+  --color-accent: #087e8b;
+  --font-sans: Inter, "Source Sans 3", Arial, sans-serif;
+}

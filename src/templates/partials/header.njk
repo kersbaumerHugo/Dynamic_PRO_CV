@@ -1,0 +1,8 @@
+<header class="header">
+  <h1 class="name">{{ person.name }}</h1>
+  <p class="title">{{ profile.title }}</p>
+  <p class="contact">
+    {% if person.contact.email %}<a href="mailto:{{ person.contact.email }}">{{ person.contact.email }}</a>{% endif %}
+    {% if person.contact.website %} • <a href="{{ person.contact.website }}">Website</a>{% endif %}
+  </p>
+</header>

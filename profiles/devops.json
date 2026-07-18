@@ -1,0 +1,11 @@
+{
+  "id": "devops",
+  "enabled": true,
+  "slug": "devops",
+  "title": { "en": "DevOps & Automation Engineer", "pt-BR": "Engenheiro de DevOps e Automação" },
+  "summaryId": "summary-devops-main",
+  "featuredSkillIds": [],
+  "featuredProjectIds": [],
+  "includeTraining": true,
+  "maxProjects": 3
+}

@@ -1,0 +1,5 @@
+@media print {
+  body { background: white; color: #000 }
+  .resume { box-shadow: none; max-width: 700px; padding: 18px }
+  a::after { content: " (" attr(href) ")" }
+}

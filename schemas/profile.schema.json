@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Profile",
+  "type": "object",
+  "required": ["id", "slug", "title"],
+  "properties": {
+    "id": { "type": "string" },
+    "enabled": { "type": "boolean" },
+    "slug": { "type": "string" },
+    "title": {
+      "type": "object",
+      "properties": { "en": { "type": "string" }, "pt-BR": { "type": "string" } }
+    },
+    "summaryId": { "type": "string" },
+    "featuredSkillIds": { "type": "array", "items": { "type": "string" } },
+    "featureProjectIds": { "type": "array", "items": { "type": "string" } },
+    "includeTraining": { "type": "boolean" },
+    "maxProjects": { "type": "integer" }
+  }
+}
