@@ -1,0 +1,37 @@
+name: Pull Request CI
+on:
+  pull_request:
+    branches: [ '**' ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate data and run tests
+        run: npm run verify
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Build HTML
+        run: npm run build
+
+      - name: Generate PDFs
+        run: npm run pdf
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
