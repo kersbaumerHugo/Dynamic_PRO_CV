@@ -4,8 +4,8 @@
   "slug": "platform-automation",
   "title": { "en": "Platform Automation Engineer", "pt-BR": "Engenheiro de Automação de Plataforma" },
   "summaryId": "summary-platform-main",
-  "featuredSkillIds": [],
-  "featuredProjectIds": [],
+  "featuredSkillIds": ["skill-docker", "skill-kubernetes", "skill-terraform", "skill-aws"],
+  "featuredProjectIds": ["project-cloud-infra", "project-container-platform"],
   "includeTraining": true,
   "maxProjects": 3
 }

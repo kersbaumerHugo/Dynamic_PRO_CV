@@ -9,11 +9,12 @@
     "slug": { "type": "string" },
     "title": {
       "type": "object",
-      "properties": { "en": { "type": "string" }, "pt-BR": { "type": "string" } }
+      "properties": { "en": { "type": "string" }, "pt-BR": { "type": "string" } },
+      "required": ["en", "pt-BR"]
     },
     "summaryId": { "type": "string" },
     "featuredSkillIds": { "type": "array", "items": { "type": "string" } },
-    "featureProjectIds": { "type": "array", "items": { "type": "string" } },
+    "featuredProjectIds": { "type": "array", "items": { "type": "string" } },
     "includeTraining": { "type": "boolean" },
     "maxProjects": { "type": "integer" }
   }

@@ -4,8 +4,8 @@
   "slug": "cloud-automation",
   "title": { "en": "Cloud Automation Engineer", "pt-BR": "Engenheiro de Automação em Nuvem" },
   "summaryId": "summary-cloud-main",
-  "featuredSkillIds": [],
-  "featuredProjectIds": [],
+  "featuredSkillIds": ["skill-python", "skill-docker", "skill-aws", "skill-observability"],
+  "featuredProjectIds": ["project-detection-as-code", "project-cicd-security", "project-cloud-infra"],
   "includeTraining": true,
   "maxProjects": 3
 }

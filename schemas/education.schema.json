@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Education",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "degree", "institution", "year"],
+    "properties": {
+      "id": { "type": "string" },
+      "degree": {
+        "type": "object",
+        "properties": { "en": { "type": "string" }, "pt-BR": { "type": "string" } },
+        "required": ["en", "pt-BR"]
+      },
+      "institution": { "type": "string" },
+      "year": { "type": "string", "pattern": "^\\d{4}$" }
+    }
+  }
+}

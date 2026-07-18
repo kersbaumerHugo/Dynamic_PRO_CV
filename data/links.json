@@ -1,0 +1,5 @@
+[
+  { "id": "link-github", "type": "github", "url": "https://github.com/kersbaumerHugo", "label": { "en": "GitHub", "pt-BR": "GitHub" } },
+  { "id": "link-linkedin", "type": "linkedin", "url": "https://www.linkedin.com/in/hugo-kersbaumer/", "label": { "en": "LinkedIn", "pt-BR": "LinkedIn" } },
+  { "id": "link-portfolio", "type": "website", "url": "https://kersbaumer.dev", "label": { "en": "Portfolio", "pt-BR": "Portfólio" } }
+]

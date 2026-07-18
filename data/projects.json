@@ -1,0 +1,54 @@
+[
+  {
+    "id": "project-detection-as-code",
+    "repositoryUrl": "https://github.com/kersbaumerHugo/detection-as-code-lab",
+    "title": {
+      "en": "Detection-as-Code Lab",
+      "pt-BR": "Laboratório de Detection-as-Code"
+    },
+    "summary": {
+      "en": "Built a version-controlled detection engineering lab using Sigma rules, Docker containers, Wazuh sensors, and repeatable CI validation.",
+      "pt-BR": "Construí um laboratório de engenharia de detecção versionado usando regras Sigma, containers Docker, sensores Wazuh e validação CI repetível."
+    },
+    "visibility": "public"
+  },
+  {
+    "id": "project-cicd-security",
+    "repositoryUrl": "https://github.com/kersbaumerHugo/cicd-security-pipeline",
+    "title": {
+      "en": "CI/CD Security Pipeline",
+      "pt-BR": "Pipeline de Segurança CI/CD"
+    },
+    "summary": {
+      "en": "Designed a secure GitHub Actions workflow for container scanning, secrets auditing, and automated deployment gating.",
+      "pt-BR": "Projetei um workflow seguro no GitHub Actions para scanner de container, auditoria de segredos e gating automatizado de deploy."
+    },
+    "visibility": "public"
+  },
+  {
+    "id": "project-cloud-infra",
+    "repositoryUrl": "https://github.com/kersbaumerHugo/cloud-infra-automation",
+    "title": {
+      "en": "Cloud Infrastructure Automation",
+      "pt-BR": "Automação de Infraestrutura em Nuvem"
+    },
+    "summary": {
+      "en": "Automated environment provisioning and observability deployment with Terraform, AWS, and Datadog dashboards.",
+      "pt-BR": "Automatizei provisionamento de ambientes e implantação de observabilidade com Terraform, AWS e painéis Datadog."
+    },
+    "visibility": "public"
+  },
+  {
+    "id": "project-container-platform",
+    "repositoryUrl": "https://github.com/kersbaumerHugo/container-platform",
+    "title": {
+      "en": "Container Platform Simplification",
+      "pt-BR": "Simplificação de Plataforma de Containers"
+    },
+    "summary": {
+      "en": "Delivered a lightweight container platform reference architecture with Kubernetes, service mesh, and policy automation.",
+      "pt-BR": "Entreguei uma arquitetura de referência para plataforma de containers leve com Kubernetes, malha de serviço e automação de políticas."
+    },
+    "visibility": "public"
+  }
+]

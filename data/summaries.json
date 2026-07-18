@@ -1,0 +1,23 @@
+[
+  {
+    "id": "summary-devops-main",
+    "text": {
+      "en": "DevOps & Automation Engineer with experience in Python scripting, CI/CD workflows, and process reliability.",
+      "pt-BR": "Engenheiro de DevOps e Automação com experiência em scripts Python, fluxos CI/CD e confiabilidade de processos."
+    }
+  },
+  {
+    "id": "summary-platform-main",
+    "text": {
+      "en": "Platform Automation Engineer focused on infrastructure automation, container orchestration, and operations efficiency.",
+      "pt-BR": "Engenheiro de Automação de Plataforma focado em automação de infraestrutura, orquestração de containers e eficiência operacional."
+    }
+  },
+  {
+    "id": "summary-cloud-main",
+    "text": {
+      "en": "Cloud Automation Engineer with strong automation, observability, and secure deployment practices.",
+      "pt-BR": "Engenheiro de Automação em Nuvem com foco em automação, observabilidade e práticas seguras de implantação."
+    }
+  }
+]

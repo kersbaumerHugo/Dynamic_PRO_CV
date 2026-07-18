@@ -1,0 +1,80 @@
+[
+  {
+    "id": "exp-infotec-planning-engineer",
+    "company": "Infotec Brasil",
+    "role": {
+      "en": "Planning Engineer - Automation & Data Solutions",
+      "pt-BR": "Engenheiro de Planejamento - Automação e Soluções de Dados"
+    },
+    "location": {
+      "en": "Brazil",
+      "pt-BR": "Brasil"
+    },
+    "startDate": "2024-09",
+    "endDate": null,
+    "current": true,
+    "bullets": [
+      {
+        "id": "bullet-infotec-timesheet-impact",
+        "text": {
+          "en": "Developed a Python application that cross-checks timesheet records for 450–500 employees and reduced a manual billing audit from four hours to five minutes.",
+          "pt-BR": "Desenvolvi uma aplicação em Python que cruza registros de timesheet de 450 a 500 funcionários e reduziu uma auditoria de faturamento de quatro horas para cinco minutos."
+        }
+      },
+      {
+        "id": "bullet-infotec-ci",
+        "text": {
+          "en": "Implemented automated tests and GitHub Actions CI to validate changes and reduce regression risk.",
+          "pt-BR": "Implementei testes automatizados e GitHub Actions CI para validar mudanças e reduzir risco de regressão."
+        }
+      },
+      {
+        "id": "bullet-infotec-data-pipeline",
+        "text": {
+          "en": "Orchestrated ETL pipelines and reporting dashboards to improve data visibility for planning and operational teams.",
+          "pt-BR": "Orquestrei pipelines ETL e dashboards de relatórios para melhorar a visibilidade de dados para equipes de planejamento e operação."
+        }
+      }
+    ],
+    "skillIds": ["skill-python", "skill-github-actions", "skill-pytest", "skill-linux", "skill-aws", "skill-observability"]
+  },
+  {
+    "id": "exp-sinergy-devops-analyst",
+    "company": "Sinergy Tech",
+    "role": {
+      "en": "DevOps Analyst",
+      "pt-BR": "Analista de DevOps"
+    },
+    "location": {
+      "en": "Macaé, Brazil",
+      "pt-BR": "Macaé, Brasil"
+    },
+    "startDate": "2022-02",
+    "endDate": "2024-08",
+    "current": false,
+    "bullets": [
+      {
+        "id": "bullet-sinergy-k8s-deploy",
+        "text": {
+          "en": "Migrated legacy container workloads to a Kubernetes-based platform and improved deployment reliability by 35%.",
+          "pt-BR": "Migrei aplicações legadas em containers para uma plataforma baseada em Kubernetes e melhorei a confiabilidade de deploy em 35%."
+        }
+      },
+      {
+        "id": "bullet-sinergy-terraform",
+        "text": {
+          "en": "Standardized infrastructure provisioning with Terraform, enabling repeatable deployments across staging and production.",
+          "pt-BR": "Padronizei o provisionamento de infraestrutura com Terraform, permitindo deploys repetíveis em staging e produção."
+        }
+      },
+      {
+        "id": "bullet-sinergy-monitoring",
+        "text": {
+          "en": "Deployed observability tooling and alerting for critical services, reducing mean time to detect incidents.",
+          "pt-BR": "Implementei ferramentas de observabilidade e alertas para serviços críticos, reduzindo o tempo médio de detecção de incidentes."
+        }
+      }
+    ],
+    "skillIds": ["skill-kubernetes", "skill-terraform", "skill-docker", "skill-aws"]
+  }
+]
