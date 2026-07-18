@@ -166,6 +166,9 @@ function main() {
       }
 
       if (p.summaryId && !allIds.has(p.summaryId)) errors.push(`Profile ${f} references unknown summaryId '${p.summaryId}'`);
+      if (Array.isArray(p.featuredSkillIds)) {
+        for (const sid of p.featuredSkillIds) if (!allIds.has(sid)) errors.push(`Profile ${f} references unknown skill id '${sid}'`);
+      }
       if (Array.isArray(p.featuredProjectIds)) {
         for (const pid of p.featuredProjectIds) if (!allIds.has(pid)) errors.push(`Profile ${f} references unknown project id '${pid}'`);
       }

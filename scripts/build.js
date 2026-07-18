@@ -12,6 +12,13 @@ function main() {
   console.log('Running HTML render...');
   const { execSync } = require('child_process');
   execSync('node scripts/render-html.js', { stdio: 'inherit' });
+
+  const rootIndex = path.join(path.resolve(__dirname, '..'), 'index.html');
+  if (fs.existsSync(rootIndex)) {
+    fs.copyFileSync(rootIndex, path.join(dist, 'index.html'));
+    console.log('Copied root index.html into dist');
+  }
+
   try {
     execSync('node scripts/validate-html.js', { stdio: 'inherit' });
   } catch (e) {
