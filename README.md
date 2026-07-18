@@ -38,6 +38,12 @@ What is included
 - CSS for screen and print in `src/styles/`
 - Build scripts in `scripts/`
 - Tests with Vitest in `tests/`
+- Resume sections for summaries, skills, experience, certifications, education, languages, and training
+
+Build outputs
+- Generated profile pages are written under `dist/<locale>/<profile-slug>/index.html`
+- Root static landing page is copied into `dist/index.html`
+- PDF exports are written to `dist/downloads/`
 
 CI
 - Pull requests run validation, tests, build and PDF generation (`.github/workflows/pull-request.yml`).

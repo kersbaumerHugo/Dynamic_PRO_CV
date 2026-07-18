@@ -1,0 +1,14 @@
+<h2>Certifications</h2>
+{% if certifications and certifications.length %}
+  <ul class="certifications-list">
+  {% for cert in certifications %}
+    <li>
+      <strong>{{ cert.name }}</strong><br>
+      {{ cert.issuer }} • {{ cert.year }}
+      {% if cert.credentialUrl %}<br><a href="{{ cert.credentialUrl }}">Verify credential</a>{% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No certifications listed.</p>
+{% endif %}

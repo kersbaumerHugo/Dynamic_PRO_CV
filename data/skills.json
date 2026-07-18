@@ -1,0 +1,11 @@
+[
+  { "id": "skill-python", "category": "automation-development", "label": { "en": "Python", "pt-BR": "Python" } },
+  { "id": "skill-github-actions", "category": "ci-cd", "label": { "en": "GitHub Actions", "pt-BR": "GitHub Actions" } },
+  { "id": "skill-docker", "category": "containerization", "label": { "en": "Docker", "pt-BR": "Docker" } },
+  { "id": "skill-linux", "category": "platform", "label": { "en": "Linux", "pt-BR": "Linux" } },
+  { "id": "skill-pytest", "category": "testing", "label": { "en": "Pytest", "pt-BR": "Pytest" } },
+  { "id": "skill-aws", "category": "cloud", "label": { "en": "AWS", "pt-BR": "AWS" } },
+  { "id": "skill-observability", "category": "monitoring", "label": { "en": "Observability", "pt-BR": "Observabilidade" } },
+  { "id": "skill-kubernetes", "category": "container-orchestration", "label": { "en": "Kubernetes", "pt-BR": "Kubernetes" } },
+  { "id": "skill-terraform", "category": "infra-as-code", "label": { "en": "Terraform", "pt-BR": "Terraform" } }
+]

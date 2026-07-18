@@ -1,0 +1,22 @@
+[
+  {
+    "id": "training-automation-best-practices",
+    "title": {
+      "en": "Automation Engineering Best Practices",
+      "pt-BR": "Melhores Práticas de Engenharia de Automação"
+    },
+    "institution": "Udemy",
+    "year": "2023",
+    "link": "https://www.udemy.com/course/automation-best-practices/"
+  },
+  {
+    "id": "training-cloud-infrastructure",
+    "title": {
+      "en": "Cloud Infrastructure and Observability",
+      "pt-BR": "Infraestrutura em Nuvem e Observabilidade"
+    },
+    "institution": "Coursera",
+    "year": "2024",
+    "link": "https://www.coursera.org/learn/cloud-infrastructure-observability"
+  }
+]

@@ -3,6 +3,9 @@
   {% for e in experiences %}
     <article class="job">
       <h3>{{ e.role }} — {{ e.company }}</h3>
+      {% if e.location %}
+        <div class="location">{{ e.location[locale] || e.location }}</div>
+      {% endif %}
       <div class="dates">{{ e.startDate }} — {{ e.endDate or 'Present' }}</div>
       <ul>
       {% for b in e.bullets %}

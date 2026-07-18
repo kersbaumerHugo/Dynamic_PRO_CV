@@ -1,0 +1,20 @@
+[
+  {
+    "id": "edu-university-systems-engineering",
+    "degree": {
+      "en": "Bachelor of Systems Engineering",
+      "pt-BR": "Bacharel em Engenharia de Sistemas"
+    },
+    "institution": "Federal University of Technology",
+    "year": "2023"
+  },
+  {
+    "id": "edu-automation-specialization",
+    "degree": {
+      "en": "Specialization in Industrial Automation",
+      "pt-BR": "Especialização em Automação Industrial"
+    },
+    "institution": "SENAI",
+    "year": "2022"
+  }
+]

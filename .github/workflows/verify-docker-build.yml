@@ -1,0 +1,50 @@
+name: Verify Docker Build
+on:
+  pull_request:
+    branches: ['**']
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: false
+          tags: resume-app:pr-${{ github.run_id }}
+
+      - name: Run container
+        run: |
+          docker run -d --rm --name resume-test -p 8080:8080 resume-app:pr-${{ github.run_id }} || (docker logs resume-test || true)
+
+      - name: Wait for server
+        run: |
+          for i in {1..20}; do
+            if curl -fsS http://localhost:8080/ >/dev/null 2>&1; then echo 'up' && break; fi
+            sleep 1
+          done
+
+      - name: Smoke check index
+        run: |
+          set -e
+          status=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/ || true)
+          echo "status=$status"
+          if [ "$status" != "200" ]; then docker ps -a; docker logs resume-test || true; exit 1; fi
+
+      - name: Stop container
+        run: |
+          docker stop resume-test || true
+
+      - name: Cleanup image
+        run: |
+          docker rmi resume-app:pr-${{ github.run_id }} || true

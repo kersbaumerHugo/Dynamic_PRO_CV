@@ -2,18 +2,40 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Experience",
   "type": "object",
-  "required": ["id", "company", "role", "startDate"],
+  "required": ["id", "company", "role", "startDate", "bullets"],
   "properties": {
     "id": { "type": "string" },
     "company": { "type": "string" },
     "role": {
       "type": "object",
+      "properties": { "en": { "type": "string" }, "pt-BR": { "type": "string" } },
+      "required": ["en", "pt-BR"]
+    },
+    "location": {
+      "type": "object",
       "properties": { "en": { "type": "string" }, "pt-BR": { "type": "string" } }
     },
-    "location": { "type": "object" },
     "startDate": { "type": "string", "pattern": "^\\d{4}-\\d{2}$" },
-    "endDate": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}$" },
+    "endDate": { "type": ["string", "null"] },
     "current": { "type": "boolean" },
-    "bullets": { "type": "array" }
+    "skillIds": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "bullets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "text"],
+        "properties": {
+          "id": { "type": "string" },
+          "text": {
+            "type": "object",
+            "properties": { "en": { "type": "string" }, "pt-BR": { "type": "string" } },
+            "required": ["en", "pt-BR"]
+          }
+        }
+      }
+    }
   }
 }

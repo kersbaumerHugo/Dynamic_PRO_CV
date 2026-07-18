@@ -63,4 +63,3 @@ async function generate() {
 if (require.main === module) {
   generate().then(() => { console.log('PDF generation completed'); process.exit(0); }).catch(err => { console.error(err); process.exit(2); });
 }
-console.log('PDF generation stub — implement Playwright-based renderer in a later step.');

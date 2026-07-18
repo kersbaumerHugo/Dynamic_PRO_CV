@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Summaries",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "text"],
+    "properties": {
+      "id": { "type": "string" },
+      "text": {
+        "type": "object",
+        "properties": {
+          "en": { "type": "string" },
+          "pt-BR": { "type": "string" }
+        },
+        "required": ["en", "pt-BR"]
+      }
+    }
+  }
+}

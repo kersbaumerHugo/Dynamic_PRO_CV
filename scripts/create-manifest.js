@@ -20,9 +20,15 @@ function main() {
       else if (f === 'index.html') {
         const rel = path.relative(dist, full).replace(/\\\\/g, '/');
         const parts = rel.split('/');
-        const locale = parts[0];
-        const profile = parts[1];
-        outputs.push({ profile, locale, html: rel });
+        const entry = { html: rel };
+        if (parts.length >= 3) {
+          entry.locale = parts[0];
+          entry.profile = parts[1];
+        } else {
+          entry.locale = 'root';
+          entry.profile = 'root';
+        }
+        outputs.push(entry);
       }
     }
   }

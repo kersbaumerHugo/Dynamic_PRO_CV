@@ -4,8 +4,8 @@
   "slug": "devops",
   "title": { "en": "DevOps & Automation Engineer", "pt-BR": "Engenheiro de DevOps e Automação" },
   "summaryId": "summary-devops-main",
-  "featuredSkillIds": [],
-  "featuredProjectIds": [],
+  "featuredSkillIds": ["skill-python", "skill-github-actions", "skill-pytest", "skill-linux"],
+  "featuredProjectIds": ["project-detection-as-code", "project-cicd-security"],
   "includeTraining": true,
   "maxProjects": 3
 }

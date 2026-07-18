@@ -35,36 +35,77 @@ function resolveProfile(profileId, locale) {
     throw new Error(`Profile not found: ${profileId}`);
   }
 
-  const people = loadAll(dataDir);
-  const projects = loadAll(path.join(root, 'data'));
-  const experiences = loadAll(path.join(root, 'data'));
+  const summariesPath = path.join(root, 'data', 'summaries.json');
+  const skillsPath = path.join(root, 'data', 'skills.json');
+  const projectsPath = path.join(root, 'data', 'projects.json');
+  const experiencePath = path.join(root, 'data', 'experience.json');
+  const linksPath = path.join(root, 'data', 'links.json');
+  const languagesPath = path.join(root, 'data', 'languages.json');
+  const trainingsPath = path.join(root, 'data', 'trainings.json');
+  const certificationsPath = path.join(root, 'data', 'certifications.json');
+  const educationPath = path.join(root, 'data', 'education.json');
+
+  const summaries = fs.existsSync(summariesPath) ? loadJson(summariesPath) : [];
+  const skills = fs.existsSync(skillsPath) ? loadJson(skillsPath) : [];
+  const projects = fs.existsSync(projectsPath) ? loadJson(projectsPath) : [];
+  const experiences = fs.existsSync(experiencePath) ? loadJson(experiencePath) : [];
+  const links = fs.existsSync(linksPath) ? loadJson(linksPath) : [];
+  const languages = fs.existsSync(languagesPath) ? loadJson(languagesPath) : [];
+  const trainings = fs.existsSync(trainingsPath) ? loadJson(trainingsPath) : [];
+  const certifications = fs.existsSync(certificationsPath) ? loadJson(certificationsPath) : [];
+  const education = fs.existsSync(educationPath) ? loadJson(educationPath) : [];
+
+  const summaryMap = summaries.reduce((acc, item) => { if (item && item.id) acc[item.id] = item; return acc; }, {});
+  const skillsMap = skills.reduce((acc, item) => { if (item && item.id) acc[item.id] = item; return acc; }, {});
+  const projectsMap = projects.reduce((acc, item) => { if (item && item.id) acc[item.id] = item; return acc; }, {});
 
   const personFile = path.join(root, 'data', 'person.json');
   const person = fs.existsSync(personFile) ? loadJson(personFile) : {};
 
+  const profileTitle = profile.title && profile.title[locale] ? profile.title[locale] : profile.title;
+  const featuredProjects = Array.isArray(profile.featuredProjectIds) ? profile.featuredProjectIds.slice(0, profile.maxProjects || 3).map(pid => {
+    const p = projectsMap[pid];
+    if (!p) return null;
+    return {
+      id: p.id,
+      title: (p.title && p.title[locale]) || p.title,
+      summary: (p.summary && p.summary[locale]) || p.summary,
+      repositoryUrl: p.repositoryUrl,
+      visibility: p.visibility
+    };
+  }).filter(Boolean) : [];
+
   const view = {
-    profile: { id: profile.id, slug: profile.slug, title: profile.title && profile.title[locale] ? profile.title[locale] : profile.title },
+    profile: {
+      id: profile.id,
+      slug: profile.slug,
+      title: profileTitle,
+      summary: profile.summaryId && summaryMap[profile.summaryId] ? (summaryMap[profile.summaryId].text && summaryMap[profile.summaryId].text[locale]) || summaryMap[profile.summaryId].text : null,
+      featuredSkills: Array.isArray(profile.featuredSkillIds) ? profile.featuredSkillIds.map(sid => skillsMap[sid]).filter(Boolean) : [],
+      featuredProjects
+    },
     locale,
     person: { name: (person.name && person.name[locale]) || person.name || '', contact: person.contact || {} },
-    featuredProjects: [],
-    experiences: []
+    featuredProjects,
+    experiences: [],
+    links: links.map(link => ({ id: link.id, type: link.type, url: link.url, label: (link.label && link.label[locale]) || link.label })),
+    languages: languages.map(lang => ({ id: lang.id, label: (lang.label && lang.label[locale]) || lang.label })),
+    trainings: trainings.map(t => ({ id: t.id, title: (t.title && t.title[locale]) || t.title, institution: t.institution, year: t.year, link: t.link })),
+    certifications: certifications.map(c => ({ id: c.id, name: (c.name && c.name[locale]) || c.name, issuer: c.issuer, year: c.year, credentialUrl: c.credentialUrl })),
+    education: education.map(e => ({ id: e.id, degree: (e.degree && e.degree[locale]) || e.degree, institution: e.institution, year: e.year }))
   };
 
-  if (Array.isArray(profile.featuredProjectIds)) {
-    for (const pid of profile.featuredProjectIds.slice(0, profile.maxProjects || 3)) {
-      const p = projects[pid];
-      if (p) view.featuredProjects.push({ id: p.id, title: (p.title && p.title[locale]) || p.title, summary: (p.summary && p.summary[locale]) || p.summary });
-    }
-  }
-
-  const expFile = path.join(root, 'data', 'experience.json');
-  if (fs.existsSync(expFile)) {
-    const exps = loadJson(expFile);
-    if (Array.isArray(exps)) {
-      for (const e of exps) {
-        view.experiences.push({ id: e.id, company: e.company, role: (e.role && e.role[locale]) || e.role, startDate: e.startDate, endDate: e.endDate, bullets: e.bullets || [] });
-      }
-    }
+  if (Array.isArray(experiences)) {
+    view.experiences = experiences.map(e => ({
+      id: e.id,
+      company: e.company,
+      role: (e.role && e.role[locale]) || e.role,
+      location: e.location,
+      startDate: e.startDate,
+      endDate: e.endDate,
+      current: e.current,
+      bullets: Array.isArray(e.bullets) ? e.bullets.map(b => ({ id: b.id, text: (b.text && b.text[locale]) || b.text })) : []
+    }));
   }
 
   const out = path.join(dist, `${profileId}-${locale}.json`);

@@ -4,5 +4,10 @@
   <p class="contact">
     {% if person.contact.email %}<a href="mailto:{{ person.contact.email }}">{{ person.contact.email }}</a>{% endif %}
     {% if person.contact.website %} • <a href="{{ person.contact.website }}">Website</a>{% endif %}
+    {% if links and links.length %}
+      {% for link in links %}
+        • <a href="{{ link.url }}">{{ link.label }}</a>
+      {% endfor %}
+    {% endif %}
   </p>
 </header>

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "cert-datadog-observability",
+    "name": {
+      "en": "Datadog Observability Essentials",
+      "pt-BR": "Datadog Observability Essentials"
+    },
+    "issuer": "Datadog",
+    "year": "2024",
+    "credentialUrl": "https://www.datadoghq.com/"
+  },
+  {
+    "id": "cert-splunk-security",
+    "name": {
+      "en": "Splunk Security Essentials",
+      "pt-BR": "Splunk Security Essentials"
+    },
+    "issuer": "Splunk",
+    "year": "2023",
+    "credentialUrl": "https://www.splunk.com/"
+  }
+]
