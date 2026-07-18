@@ -1,0 +1,14 @@
+<h2>Professional Training</h2>
+{% if trainings and trainings.length %}
+  <ul class="trainings-list">
+  {% for item in trainings %}
+    <li>
+      <strong>{{ item.title }}</strong><br>
+      {{ item.institution }} • {{ item.year }}
+      {% if item.link %}<br><a href="{{ item.link }}">Course details</a>{% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No training records.</p>
+{% endif %}

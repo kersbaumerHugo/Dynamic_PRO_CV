@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{{ person.name }} — {{ profile.title }}</title>
-    <link rel="stylesheet" href="/styles/tokens.css">
-    <link rel="stylesheet" href="/styles/base.css">
-    <link rel="stylesheet" href="/styles/layout.css">
-    <link rel="stylesheet" href="/styles/print.css" media="print">
+    <link rel="stylesheet" href="../../styles/tokens.css">
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="../../styles/layout.css">
+    <link rel="stylesheet" href="../../styles/print.css" media="print">
   </head>
   <body>
     <main class="resume">
@@ -23,6 +23,18 @@
       </section>
       <section class="projects">
         {% include "partials/projects.njk" %}
+      </section>
+      <section class="languages">
+        {% include "partials/languages.njk" %}
+      </section>
+      <section class="certifications">
+        {% include "partials/certifications.njk" %}
+      </section>
+      <section class="education">
+        {% include "partials/education.njk" %}
+      </section>
+      <section class="trainings">
+        {% include "partials/trainings.njk" %}
       </section>
     </main>
   </body>

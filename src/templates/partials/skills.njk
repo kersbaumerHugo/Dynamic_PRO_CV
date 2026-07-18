@@ -1,8 +1,8 @@
 <h2>Core Skills</h2>
-{% if profile.featuredSkillIds and profile.featuredSkillIds.length %}
+{% if profile.featuredSkills and profile.featuredSkills.length %}
   <ul class="skills-list">
-  {% for sid in profile.featuredSkillIds %}
-    <li>{{ sid }}</li>
+  {% for skill in profile.featuredSkills %}
+    <li>{{ skill.label[locale] || skill.label || skill.id }}</li>
   {% endfor %}
   </ul>
 {% else %}

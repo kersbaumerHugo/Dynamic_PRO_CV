@@ -1,0 +1,13 @@
+<h2>Education</h2>
+{% if education and education.length %}
+  <ul class="education-list">
+  {% for item in education %}
+    <li>
+      <strong>{{ item.degree }}</strong><br>
+      {{ item.institution }} • {{ item.year }}
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No education entries.</p>
+{% endif %}

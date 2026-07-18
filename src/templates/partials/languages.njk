@@ -1,0 +1,10 @@
+<h2>Languages</h2>
+{% if languages and languages.length %}
+  <ul class="languages-list">
+  {% for lang in languages %}
+    <li>{{ lang.label }}</li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No language entries.</p>
+{% endif %}
