@@ -57,8 +57,6 @@ jobs:
   build:
     needs: verify-docker
     runs-on: ubuntu-latest
-    outputs:
-      dist-path: ${{ steps.upload-artifact.outputs.artifact-path }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
