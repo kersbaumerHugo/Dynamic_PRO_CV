@@ -10,7 +10,7 @@
     "build": "node scripts/build.js",
     "pdf": "node scripts/generate-pdfs.js",
     "test": "vitest",
-    "verify": "npm run validate && npm test && npm run build",
+    "verify": "npm run validate && npm test",
     "resolve": "node scripts/resolve-profile.js"
   },
   "dependencies": {

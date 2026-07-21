@@ -7,7 +7,11 @@ WORKDIR /workspace
 COPY package.json package-lock.json* ./
 
 # Install dependencies
-RUN npm ci --no-audit --no-fund
+RUN if [ -f package-lock.json ]; then \
+      npm ci --no-audit --no-fund; \
+    else \
+      npm install --no-audit --no-fund; \
+    fi
 
 # Copy project
 COPY . ./
@@ -16,7 +20,7 @@ COPY . ./
 RUN npx playwright install --with-deps || true
 
 # Build static site
-RUN npm run build || true
+RUN npm run build
 
 EXPOSE 8080
 
